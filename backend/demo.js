@@ -1,12 +1,15 @@
-const {MongoClient} = require('mongodb');
+const dbconnect = require('./db/mongodb');
+// List  all Databases in my mongodb
 
+// const {MongoClient} = require('mongodb');
 const dotenv = require('dotenv');
 dotenv.config();
 
 async function main() {
-    const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.tnnosrb.mongodb.net/?retryWrites=true&w=majority`;
+    // const uri = dbconnect.mongodb_URI;
+    const uri = process.env.mongodbURL;
 
-    const client = new MongoClient(uri);
+    const client = new dbconnect.MongoClient(uri);
 
     try {
         await client.connect();
