@@ -14,6 +14,7 @@ app.use(bodyParser.json())
   res.setHeader('Access-Control-Allow-Origin', '*');
   next();
 })
+  .use(bodyParser.urlencoded({ extended: true }))
   .use('/professional', professionalRoutes)  
   .use('/contacts', contactRoutes);
 

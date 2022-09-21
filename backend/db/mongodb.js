@@ -17,7 +17,7 @@ dotenv.config();
 
 let _db;
 
-const initDb = callback => {
+const initDb = (callback) => {
   if (_db) {
     console.log('Db is already initialized!');
     return callback(null, _db);
